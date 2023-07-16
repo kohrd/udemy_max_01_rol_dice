@@ -37,10 +37,14 @@ class GradientContainer extends StatelessWidget {
         ),
       ),
       child: Center(
+
         // child: MyTextStyle("Flutter really sucks!"),
         child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset('assets/images/dice-2.png', width: 200),
+            SizedBox(height: 200,),
             TextButton(
               onPressed: rollDice,
               child: const Text('Rzuć kostką!',
