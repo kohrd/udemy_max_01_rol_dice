@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:roll_dice_app/styled_text.dart';
 
+import 'dice_roller.dart';
+
 var startAlignment = Alignment.topLeft;
 var endAlignment = Alignment.bottomRight;
 
@@ -18,11 +20,6 @@ class GradientContainer extends StatelessWidget {
   final Color color2;
 
 
-  void rollDice(){
-    //...
-
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,23 +33,10 @@ class GradientContainer extends StatelessWidget {
           end: endAlignment,
         ),
       ),
-      child: Center(
+      child: const Center(
 
         // child: MyTextStyle("Flutter really sucks!"),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset('assets/images/dice-2.png', width: 200),
-            SizedBox(height: 200,),
-            TextButton(
-              onPressed: rollDice,
-              style: TextButton.styleFrom(foregroundColor: Colors.white54, textStyle: const TextStyle(fontSize: 40) ),
-              child: const Text('Rzuć kostką!'),
-
-            ),
-          ],
-        ),
+        child: DiceRoller(),
         // Image.assets - po krope jest nazwa alternatywnego konstrukora klasy Image
       ),
     );
