@@ -1,32 +1,28 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
+
+var randomizer = Random();
 class DiceRoller extends StatefulWidget{
   const DiceRoller({super.key});
 
   @override
   State<DiceRoller> createState() {
     return _DiceRollerState();
-    throw UnimplementedError();
   }
-
 }
 
 
 class _DiceRollerState extends State<DiceRoller> {
 
-  var activeDiceImage = 'assets/images/dice-2.png';
+  var currentDiceRoll = 2;
 
   void rollDice(){
     setState((){
       // obecnosc tej funkcji powoduje ponowne uruchomienie funkcji build i zmianie stateful widzeta
-      activeDiceImage =  'assets/images/dice-4.png';
-      print("roll Dice function");
-
-
+      currentDiceRoll = randomizer.nextInt(5) + 1;
+      // print("roll Dice functio5");
     });
-
-    //...
-
   }
 
   @override
@@ -35,13 +31,12 @@ class _DiceRollerState extends State<DiceRoller> {
       // mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Image.asset(activeDiceImage, width: 200),
+        Image.asset( 'assets/images/dice-$currentDiceRoll.png', width: 200),
         SizedBox(height: 200,),
         TextButton(
           onPressed: rollDice,
           style: TextButton.styleFrom(foregroundColor: Colors.white54, textStyle: const TextStyle(fontSize: 40) ),
           child: const Text('Rzuć kostką!'),
-
         ),
       ],
     );    throw UnimplementedError();
